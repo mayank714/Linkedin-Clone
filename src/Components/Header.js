@@ -14,11 +14,65 @@ let Header=(props)=>{
                         <input type="text" placeholder='Search Here'/>
                     </div>
                     <Searchicon>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
-                    </svg>
+                    
+                    <a href="/home">
+                    <img src="/images/search-icon.svg" alt=""/>
+                </a>
                     </Searchicon>
                 </Search>
+                <Nav>
+                <NavListWrap>
+                    <NabList className='active'>
+                        <a>
+                            <img src='/images/nav-home.svg'/>
+                            <span>Home</span>
+                        </a>
+                    </NabList>
+                    <NabList>
+                        <a>
+                            <img src='/images/nav-network.svg'/>
+                            <span>My Network</span>
+                        </a>
+                    </NabList>
+                    <NabList>
+                        <a>
+                            <img src='/images/nav-jobs.svg'/>
+                            <span>Jobs</span>
+                        </a>
+                    </NabList>
+                    <NabList>
+                        <a>
+                            <img src='/images/nav-messaging.svg'/>
+                            <span>Messaging </span>
+                        </a>
+                    </NabList>
+                    <NabList>
+                        <a>
+                            <img src='/images/nav-notifications.svg'/>
+                            <span>Notificatios</span>
+                        </a>
+                    </NabList>
+                    <User>
+                    <a>
+                            <img src='/images/user.svg'/>
+                            <span>Me</span>
+                            <img src='/images/down-icon.svg'/>
+                        </a> 
+                        <SignOut>
+                       <a>Sign Out</a> 
+                    </SignOut>
+                    </User>
+                    
+                    <Work>
+                    <a>
+                            <img src='/images/nav-work.svg'/>
+                            <span>Work
+                            <img src='/images/down-icon.svg'/>
+                            </span>
+                        </a>   
+                    </Work>
+                </NavListWrap>
+                </Nav>
             </Content>
         </Container>
     );
@@ -57,10 +111,138 @@ position:relative;
         box-shadow:none;
         background-color:#eef3f8; 
         border-radius:2px;
+        color: rgba(0,0,0,0.9);
+        width:218px;
+        padding:0 8px 0 40px;
+        line-height:1.75;
+        font-weight:400;
+        font-size:14px;
+        height:34px;
+        border-color:#dce6f1;
+        vertical-align:text-top ;
 
-        
+
     }
 }
 `;
-let Searchicon=styled.div``;
+let Searchicon=styled.div`
+width:40px;
+position:absolute;
+z-index:1;
+top:10px;
+left:2px;
+border-radius:0 2px 2px 0;
+margin:0;
+pointer-events:none;
+display:flex;
+justify-content: center;
+align-items:center;
+
+`;
+let Nav=styled.nav`
+margin-left:auto ;
+display: block;
+@media(max-width:768px){
+    position:fixed;
+    left:0;
+    bottom:0;
+    background:white;
+    width:100%;
+}
+`;
+let NavListWrap=styled.ul`
+display:flex;
+flex-wrap:nowrap;
+list-style-type:none;
+.active{
+    span:after{
+        content:"";
+        transform:scaleX(1) ;
+        border-bottom:2px solid var(--white,#fff);
+        bottom:0;
+        left:0;
+        position:absolute;
+        transition:transform 0.2s ease-in-ease-out;
+        width:100%;
+        border-color:rgba(0,0,0,0.9);
+    }
+}
+
+`;
+let NabList= styled.li`
+display:flex;
+align-items:center;
+a{
+    align-items:center ;
+    background:transparent ;
+    display:flex;
+    flex-direction:column;
+    font-size:12px;
+    font-weight:400;
+    justify-content:center ;
+    line-height:1.5;
+    min-height:42px;
+    min-width:80px;
+    position:relative;
+    text-decoration:none;
+    span{
+        color:rgba(0,0,0,0.6);
+        display:flex;
+        align-items:center ;
+
+    }
+    @media(max-width:768px){
+        min-width:70px;
+
+    }
+}
+&:hover,&:active{
+    a{
+        span{
+            color:rgba(0,0,0,0.9);
+        }
+    }
+}
+`;
+const SignOut = styled.div`
+  position: absolute;
+  top: 45px;
+  background: white;
+  border-radius: 0 0 5px 5px;
+  width: 100px;
+  height: 40px;
+  font-size: 16px;
+  transition-duration: 167ms;
+  text-align: center;
+  display: none;
+`;
+
+const User = styled(NabList)`
+  a > svg {
+    width: 24px;
+    border-radius: 50%;
+  }
+  a > img {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+  }
+  span {
+    display: flex;
+    align-items: center;
+  }
+  &:hover {
+    ${SignOut} {
+      align-items: center;
+      display: flex;
+      justify-content: center;
+    }
+  }
+`;
+
+let Work=styled(User)`
+border-left:1px solid rgba(0,0,0,0.08);
+`;
+
+
 export default Header
