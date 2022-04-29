@@ -2,6 +2,6 @@ import Click from './Click';
 import { combineReducers } from 'redux';
 
  const AllReducers = combineReducers({
-    Click
+    userState:Click
 });
 export default AllReducers;
