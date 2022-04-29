@@ -4,6 +4,7 @@ import GoogleClick from '../actions/index'
 import controlClick from '../reducers/Click'
 
 const Login = (props) => {
+  console.log("first");
  
   const dispach=useDispatch();
   // alert(mystate);
