@@ -1,6 +1,7 @@
 import styled from "styled-components";
-import { useSelector,useDispatch } from "react-redux";
-import GoogleClick from '../actions/index'
+import { useSelector,useDispatch,connect } from "react-redux";
+
+import signInAPI from '../actions/index'
 import controlClick from '../reducers/Click'
 
 const Login = (props) => {
@@ -27,7 +28,7 @@ const Login = (props) => {
         </Hero>
         <Form>
         
-          <Google className="goog" onClick={()=>{dispach(GoogleClick())}}>
+          <Google className="goog" onClick={()=>{props.SignIn}}>
             <img src="/images/google.svg" alt="" />
             Sign in with Google
           </Google>
@@ -174,5 +175,13 @@ const Google = styled.button`
     color: rgba(0, 0, 0, 0.75);
   }
 `;
+const MapStatetoProps=(state)=>{
+  return{};
+};
+const MapDipatchtoProps=(dispatch)=>({
+  SignIn:()=>dispatch(signInAPI())
 
-export default Login;
+});
+export default connect(MapStatetoProps,MapDipatchtoProps)(Login);
+
+// export default Login;

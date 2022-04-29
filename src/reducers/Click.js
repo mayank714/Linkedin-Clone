@@ -1,14 +1,13 @@
-let initialClick=1;
+let INITIAL_STATE={
+    user:null
+};
 
- let controlClick=(state=initialClick,action)=>{
+ let controlClick=(state=INITIAL_STATE,action)=>{
     
-        {
-            if(action.type=="Clicked"){
-                return  state+1;
-            }
-            return state;
-
+        switch(action.type){
+            default:
+                return state;
         }
 
-}
+};
 export default controlClick;
