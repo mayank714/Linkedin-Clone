@@ -6,16 +6,13 @@ import { useSelector } from "react-redux";
 import Login from "./Components/Login";
 
 function App() {
-  let props = {
-    imageUrl:"/js.com",
-    imageText:"food"
-    };
+  
   const mystate= useSelector((state)=>state.controlClick);
   return (
     <div className="App">
     <Router>
       <Routes >
-        <Route exact path="/" element={<Login {...props}/>}/>
+        <Route exact path="/" element={<Login />}/>
         <Route path="/home" element={<><Header/><Home/></>}/>
 
       </Routes >

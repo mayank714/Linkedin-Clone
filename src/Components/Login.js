@@ -1,15 +1,11 @@
 import styled from "styled-components";
-import { useSelector,useDispatch,connect } from "react-redux";
+import {connect } from "react-redux";
 
-import signInAPI from '../actions/index'
+import signInAPI from '../actions/index';
 import controlClick from '../reducers/Click'
 
 const Login = (props) => {
-  console.log("first");
- 
-  const dispach=useDispatch();
-  // alert(mystate);
-  console.log(props.imageUrl);
+
   return (
     <Container>
       <Nav>
@@ -28,7 +24,7 @@ const Login = (props) => {
         </Hero>
         <Form>
         
-          <Google className="goog" onClick={()=>{props.SignIn}}>
+          <Google className="goog" onClick={()=>props.signIn  }>
             <img src="/images/google.svg" alt="" />
             Sign in with Google
           </Google>
@@ -179,7 +175,7 @@ const MapStatetoProps=(state)=>{
   return{};
 };
 const MapDipatchtoProps=(dispatch)=>({
-  SignIn:()=>dispatch(signInAPI())
+  signIn:()=>dispatch(signInAPI())
 
 });
 export default connect(MapStatetoProps,MapDipatchtoProps)(Login);
