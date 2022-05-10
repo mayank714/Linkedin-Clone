@@ -1,6 +1,6 @@
 import {auth,provider} from '../firebase';
 
-export default function signInAPI(){
+ function signInAPI(){
     return(dispatch)=>{
     auth.signInWithPopup(provider)
     .then((payload)=>{
@@ -9,3 +9,4 @@ export default function signInAPI(){
     .catch((error)=>alert(error.message));
     };
     }
+    export default signInAPI;

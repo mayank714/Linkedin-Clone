@@ -24,7 +24,7 @@ const Login = (props) => {
         </Hero>
         <Form>
         
-          <Google className="goog" onClick={()=>props.signIn  }>
+          <Google className="goog" onClick={()=>props.signIn()}>
             <img src="/images/google.svg" alt="" />
             Sign in with Google
           </Google>
@@ -175,7 +175,7 @@ const MapStatetoProps=(state)=>{
   return{};
 };
 const MapDipatchtoProps=(dispatch)=>({
-  signIn:()=>dispatch(signInAPI())
+  signIn:()=>dispatch(signInAPI()),
 
 });
 export default connect(MapStatetoProps,MapDipatchtoProps)(Login);
