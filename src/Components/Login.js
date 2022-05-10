@@ -3,11 +3,13 @@ import {connect } from "react-redux";
 
 import signInAPI from '../actions/index';
 import controlClick from '../reducers/Click'
+import {Navigate} from 'react-router';
 
 const Login = (props) => {
 
   return (
     <Container>
+    {props.user && <Navigate to="/home"/>}
       <Nav>
         <a href="/">
           <img src="/images/login-logo.svg" alt="" />
@@ -172,7 +174,9 @@ const Google = styled.button`
   }
 `;
 const MapStatetoProps=(state)=>{
-  return{};
+  return{
+    user:state.userState.user
+  };
 };
 const MapDipatchtoProps=(dispatch)=>({
   signIn:()=>dispatch(signInAPI()),
