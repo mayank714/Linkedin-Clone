@@ -16,7 +16,7 @@ user:payload,
     .catch((error)=>alert(error.message));
     };
     }
-    export default signInAPI;
+ 
     export function getUserAuth(){
         return(dispatch)=>{
             auth.onAuthStateChanged(async(user)=>{
@@ -26,3 +26,17 @@ user:payload,
             })
         }
     }
+     let signOutAPI=()=>{
+        return( dispatch)=>{
+            console.log("Action triggered");
+            auth.signOut().then(()=>{dispatch(setUser(null))}).
+            catch((error)=>{
+                console.log(error.message);
+                            })
+        }
+    }
+
+    export default {
+        signInAPI,
+        signOutAPI,
+      }
